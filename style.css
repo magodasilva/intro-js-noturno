@@ -1,0 +1,152 @@
+/* propriedades customizadas */
+:root {
+    /* Cores */
+    --cor-fundo: #1d1d1d;
+    --cor-texto: #ffe4c4;
+    --cor-branco: #ffffff;
+    --cor-borda: #ffffff23;
+    --cor-fundo-header: #1d1d1d23;
+
+    /* Cores dos botões */
+    --cor-botao: #7c3aed;
+    --cor-botao-borda: #6d28d9;
+    --cor-botao-hover: #5929ac;
+
+    /* Tipografia */
+    --fonte-principal: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+
+    --fonte-tamanho-base: 1rem;
+    --fonte-tamanho-titulo: clamp(1.5rem, 5vw, 2rem);
+    --fonte-peso-normal: 400;
+    --fonte-peso-medio: 500;
+
+    /* Espaçamentos */
+    --espaco-pequeno: 0.5rem;
+    --espaco-medio: 1rem;
+    --espaco-grande: 2rem;
+
+    /* Dimensões */
+    --altura-header: 3rem;
+    --altura-botao: 3rem;
+    --largura-max-header: 30rem;
+    --largura-borda: 0.0625rem;
+    --largura-borda-botao: 0.25rem;
+
+    /* Bordas e arredondamentos */
+    --raio-padrao: 2rem;
+
+    /* Efeitos */
+    --transicao-padrao: all 300ms ease-out;
+    --desfoque-header: 0.75rem;
+    --escala-hover: 1.05;
+
+    /* Layout */
+    --largura-total: 100%;
+}
+
+
+/* reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: var(--transicao-padrao);
+}
+
+
+/* estilos gerais */
+
+body {
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-tamanho-base);
+    font-weight: var(--fonte-peso-normal);
+    padding: var(--espaco-grande);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-color: var(--cor-fundo-header);
+    backdrop-filter: blur(var(--desfoque-header));
+
+    position: sticky;
+    top: var(--espaco-medio);
+
+    height: var(--altura-header);
+    width: var(--largura-total);
+    max-width: var(--largura-max-header);
+
+    margin: 0 auto;
+    padding: var(--espaco-grande);
+
+    border-radius: var(--raio-padrao);
+    border: var(--largura-borda) solid var(--cor-borda);
+}
+
+header h1 {
+    font-size: var(--fonte-tamanho-titulo);
+}
+
+
+/* estrutura principal */
+
+main,
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: var(--espaco-grande);
+    gap: var(--espaco-grande);
+}
+
+section {
+    gap: var(--espaco-medio);
+}
+
+ul {
+    margin: var(--espaco-grande) 0 var(--espaco-grande)
+        var(--espaco-grande);
+}
+
+section,
+article {
+    padding: var(--espaco-grande);
+    border-radius: var(--raio-padrao);
+    border: var(--largura-borda) solid var(--cor-borda);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: var(--altura-botao);
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+
+    border-radius: var(--raio-padrao);
+    border: var(--largura-borda-botao) solid var(--cor-botao-borda);
+
+    font-family: inherit;
+    font-size: var(--fonte-tamanho-base);
+    font-weight: var(--fonte-peso-medio);
+
+    color: var(--cor-branco);
+    background-color: var(--cor-botao);
+
+    cursor: pointer;
+    margin-top: var(--espaco-medio);
+}
+
+button:hover {
+    background-color: var(--cor-botao-hover);
+    transform: scale(var(--escala-hover));
+}
